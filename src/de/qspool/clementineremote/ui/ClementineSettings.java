@@ -78,6 +78,8 @@ public class ClementineSettings extends SherlockPreferenceActivity
 
     private Preference mClementine;
 
+    private Preference mWakeLockPreference;
+
     //suppress warnings about deprecation as we intend to support
     //Android API 8 which requires the deprecated methods.
     @SuppressWarnings("deprecation")
@@ -97,6 +99,7 @@ public class ClementineSettings extends SherlockPreferenceActivity
         mVersion = (Preference) getPreferenceScreen().findPreference("pref_version");
         mDownloadDir = (Preference) getPreferenceScreen().findPreference(App.SP_DOWNLOAD_DIR);
         mClementine = (Preference) getPreferenceScreen().findPreference("pref_clementine_website");
+        mWakeLockPreference = (Preference) getPreferenceScreen().findPreference("pref_wake_lock");
 
         // Get the Version
         try {
@@ -347,4 +350,6 @@ public class ClementineSettings extends SherlockPreferenceActivity
             return true;
         }
     };
+
+
 }

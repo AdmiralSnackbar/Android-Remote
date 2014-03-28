@@ -120,6 +120,9 @@
     <string name="pref_lastfm_summary">Activate to love / ban tracks. (requires restart)</string>
     <string name="pref_keep_screen_on_title">Keep Screen On</string>
     <string name="pref_keep_screen_on_summary">Prevent the screen from turning off whilst Clementine Remote is connected to Clementine.</string>
+    <string name="pref_wake_lock_title">Keep CPU on</string>
+    <string name="pref_wake_lock_summary">Prevent the CPU from turning off whilst Clementine Remote is connected to Clementine (reduces battery life, increases stability).</string>
+
     <string name="pref_lower_volume_title">Lower volume</string>
     <string name="pref_lower_volume_summary">Lower volume on incoming / outgoing call.</string>
     <string name="pref_call_volume_title">Call volume level</string>

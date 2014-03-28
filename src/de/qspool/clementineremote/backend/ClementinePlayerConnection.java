@@ -25,6 +25,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
@@ -37,6 +38,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 import java.io.IOException;
@@ -108,6 +110,8 @@ public class ClementinePlayerConnection extends ClementineSimpleConnection
 
     private Pebble mPebble;
 
+    private SharedPreferences sharedPreferences;
+
     /**
      * Add a new listener for closed connections
      *
@@ -141,7 +145,7 @@ public class ClementinePlayerConnection extends ClementineSimpleConnection
                 ClementineMediaButtonEventReceiver.class.getName());
 
         mMediaButtonBroadcastReceiver = new ClementineMediaButtonEventReceiver();
-
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(App.mApp);
         Looper.loop();
     }
 
@@ -185,7 +189,8 @@ public class ClementinePlayerConnection extends ClementineSimpleConnection
             updateNotification();
 
             // The device shall be awake
-            mWakeLock.acquire();
+            if (sharedPreferences.getBoolean(App.SP_WAKE_LOCK,true));
+                mWakeLock.acquire();
 
             // We can now reconnect MAX_RECONNECTS times when
             // we get a keep alive timeout
@@ -338,7 +343,8 @@ public class ClementinePlayerConnection extends ClementineSimpleConnection
 
         App.mApp.unregisterReceiver(mMediaButtonBroadcastReceiver);
 
-        mWakeLock.release();
+        if(mWakeLock.isHeld())
+            mWakeLock.release();
 
         sendUiMessage(clementineMessage);
 

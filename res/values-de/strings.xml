@@ -98,7 +98,10 @@
     <string name="pref_lastfm_title">Last.fm</string>
     <string name="pref_lastfm_summary">Aktivieren, um Titel zu lieben oder zu sperren. (benötigt Neustart)</string>
     <string name="pref_keep_screen_on_title">Bildschirm aktiv lassen</string>
-    <string name="pref_keep_screen_on_summary">Wärend Clementine Remote verbunden ist bleibt der Bildschirm aktiv.</string>
+    <string name="pref_keep_screen_on_summary">Wärend Clementine Remote verbunden ist, bleibt der Bildschirm aktiv.</string>
+    <string name="pref_wake_lock_title">CPU aktiv lassen</string>
+    <string name="pref_wake_lock_summary">Wärend Clementine Remote verbunden ist, bleibt der Prozessor aktiv (verringt Akkulaufzeit, erhöht Stabilität)</string>
+
     <string name="pref_lower_volume_title">Lautstärke verringern</string>
     <string name="pref_lower_volume_summary">Lautstärke bei eingehenden oder ausgehenden Aufruf verringern.</string>
     <string name="pref_call_volume_title">Lautstärke beim Anruf</string>

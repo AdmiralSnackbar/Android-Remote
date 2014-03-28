@@ -139,7 +139,9 @@ public class PlayerFragment extends AbstractDrawerFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        adapter.getItem(myPager.getCurrentItem()).onCreateOptionsMenu(menu, inflater);
+        if((adapter != null) && (adapter.getItem(myPager.getCurrentItem()) != null)) {
+            adapter.getItem(myPager.getCurrentItem()).onCreateOptionsMenu(menu, inflater);
+        }
     }
 
     @Override
